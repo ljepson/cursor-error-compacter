@@ -1,0 +1,15 @@
+# Python
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+
+# Log files
+*.log
+
+# Auto-generated files
+formatted_errors.txt
+temp_content.json

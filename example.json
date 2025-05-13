@@ -1,0 +1,59 @@
+[{
+	"resource": "C:/Example/Directory/file.log",
+	"owner": "_generated_diagnostic_collection_name_#4",
+	"code": "redundant-parameter",
+	"severity": 10,
+	"message": "This function expects a maximum of 0 argument(s) but instead it is receiving 1.",
+	"source": "nginx",
+	"startLineNumber": 180,
+	"startColumn": 19,
+	"endLineNumber": 180,
+	"endColumn": 35,
+	"modelVersionId": 366
+},{
+	"resource": "C:/Example/Directory1/file.pl",
+	"owner": "_generated_diagnostic_collection_name_#4",
+	"code": "lowercase-global",
+	"severity": 2,
+	"message": "Global variable in lowercase initial, Did you miss `local` or misspell it?",
+	"source": "perlcritic",
+	"startLineNumber": 22,
+	"startColumn": 1,
+	"endLineNumber": 22,
+	"endColumn": 11,
+	"modelVersionId": 366
+},{
+	"resource": "C:/Example/Directory2/file.py",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": "cast-local-type",
+	"severity": 4,
+	"message": "This variable is defined as type `boolean`. Cannot convert its type to `unknown|nil`.\n- `nil` cannot match `boolean`\n- Type `nil` cannot match `boolean`",
+	"source": "pylint",
+	"startLineNumber": 629,
+	"startColumn": 1,
+	"endLineNumber": 629,
+	"endColumn": 8,
+	"modelVersionId": 366
+},{
+	"resource": "C:/Example/Directory3/file.lua",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "duplicate-set-field",
+	"severity": 4,
+	"message": "Duplicate field `handleMemoryWrite`.",
+	"source": "Lua Diagnostics.",
+	"startLineNumber": 2074,
+	"startColumn": 10,
+	"endLineNumber": 2074,
+	"endColumn": 51,
+	"relatedInformation": [
+		{
+			"startLineNumber": 2415,
+			"startColumn": 10,
+			"endLineNumber": 2415,
+			"endColumn": 51,
+			"message": "",
+			"resource": "C:/Example/Directory3/other-file.lua"
+		}
+	],
+	"modelVersionId": 366
+}] 
