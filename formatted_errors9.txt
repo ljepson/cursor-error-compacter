@@ -1,0 +1,6 @@
+INFO [UserAdmTestUtils.pm:16] : Critic: Symbols are exported by default (Modules::ProhibitAutomaticExportation, Severity: 4)
+INFO [UserAdmTestUtils.pm:47] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)
+INFO [UserAdmTestUtils.pm:71] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)
+INFO [UserAdmTestUtils.pm:94] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)
+INFO [UserAdmTestUtils.pm:210] : Critic: Subroutine "assert_file_exists" does not end with "return" (Subroutines::RequireFinalReturn, Severity: 4)
+INFO [UserAdmTestUtils.pm:226] : Critic: Subroutine "cleanup_files" does not end with "return" (Subroutines::RequireFinalReturn, Severity: 4)

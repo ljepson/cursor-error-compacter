@@ -53,63 +53,70 @@ def process_file(file_path, max_path_depth=1, min_severity=0):
         except Exception as e:
             print(f"Error reading file: {e}")
             return [], {"ERROR": 0, "WARNING": 0, "INFO": 0, "TOTAL": 0}
-    
-    # Check if content is valid JSON
-    if not is_valid_json(content):
-        print(f"Warning: File {file_path} doesn't appear to contain valid JSON")
-        print("Processing anyway, but results may be incomplete.")
-    
+
     results = []
     counts = {"ERROR": 0, "WARNING": 0, "INFO": 0, "TOTAL": 0}
-    
-    # Use regex to find error message blocks
+
+    # Try to parse as JSON first
+    try:
+        data = json.loads(content)
+        # If it's a dict, wrap in a list for uniform processing
+        if isinstance(data, dict):
+            data = [data]
+        if isinstance(data, list):
+            for obj in data:
+                # Only process dicts with a 'resource' key
+                if not isinstance(obj, dict) or 'resource' not in obj or 'message' not in obj:
+                    continue
+                path_parts = obj['resource'].replace('\\', '/').split('/')
+                if max_path_depth > 0 and len(path_parts) > max_path_depth:
+                    file_path_out = '/'.join(path_parts[-max_path_depth:])
+                else:
+                    file_path_out = path_parts[-1]
+                severity = int(obj.get('severity', 0))
+                if severity < min_severity:
+                    continue
+                msg_type = "ERROR" if severity >= 8 else "WARNING" if severity >= 4 else "INFO"
+                counts[msg_type] += 1
+                counts["TOTAL"] += 1
+                line = str(obj.get('startLineNumber', '?'))
+                code = str(obj.get('code', ''))
+                message = str(obj.get('message', '')).replace('\\`', '`').replace('\\n', ' ')
+                compact = f"{msg_type} [{file_path_out}:{line}] {code}: {message}"
+                results.append(compact)
+            return results, counts
+    except Exception:
+        # Not valid JSON, fall back to regex
+        print(f"Warning: File {file_path} doesn't appear to contain valid JSON")
+        print("Processing anyway, but results may be incomplete.")
+
+    # Use regex to find error message blocks (fallback)
     pattern = r'\{\s*"resource":.+?(?:,"modelVersionId":[^,}]+)?\}'
     matches = re.finditer(pattern, content, re.DOTALL)
-    
     for match in matches:
         block = match.group(0)
-        
-        # Extract information
         resource_match = re.search(r'"resource"\s*:\s*"([^"]+)"', block)
         severity_match = re.search(r'"severity"\s*:\s*(\d+)', block)
         message_match = re.search(r'"message"\s*:\s*"([^"]*)"', block)
         code_match = re.search(r'"code"\s*:\s*"?([^",}]+)"?', block)
         line_match = re.search(r'"startLineNumber"\s*:\s*(\d+)', block)
-        
         if resource_match and message_match:
-            # Get filepath with configurable depth
             path_parts = resource_match.group(1).replace('\\', '/').split('/')
             if max_path_depth > 0 and len(path_parts) > max_path_depth:
-                file_path = '/'.join(path_parts[-max_path_depth:])
+                file_path_out = '/'.join(path_parts[-max_path_depth:])
             else:
-                file_path = path_parts[-1]
-            
-            # Determine message type based on severity
+                file_path_out = path_parts[-1]
             severity = int(severity_match.group(1)) if severity_match else 0
-            
-            # Apply severity filter
             if severity < min_severity:
                 continue
-                
             msg_type = "ERROR" if severity >= 8 else "WARNING" if severity >= 4 else "INFO"
             counts[msg_type] += 1
             counts["TOTAL"] += 1
-            
-            # Get line number
             line = line_match.group(1) if line_match else "?"
-            
-            # Get code
             code = code_match.group(1) if code_match else ""
-            
-            # Get message and cleanup any escaping
-            message = message_match.group(1).replace('\\`', '`')
-            message = message.replace('\\n', ' ')  # Replace newlines with spaces for better readability
-            
-            # Format output
-            compact = f"{msg_type} [{file_path}:{line}] {code}: {message}"
-
+            message = message_match.group(1).replace('\\`', '`').replace('\\n', ' ')
+            compact = f"{msg_type} [{file_path_out}:{line}] {code}: {message}"
             results.append(compact)
-    
     return results, counts
 
 def colorize(text):

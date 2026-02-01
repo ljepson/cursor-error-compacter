@@ -1,0 +1,41 @@
+[{
+	"resource": "/opt/proofpoint/t/06_edge_cases.t",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"severity": 2,
+	"message": "Critic: Subroutine \"setup_test_environment\" is neither declared nor explicitly imported (Subroutines::ProhibitCallsToUndeclaredSubs, Severity: 4)",
+	"source": "perlnavigator",
+	"startLineNumber": 27,
+	"startColumn": 16,
+	"endLineNumber": 27,
+	"endColumn": 516
+},{
+	"resource": "/opt/proofpoint/t/06_edge_cases.t",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"severity": 2,
+	"message": "Critic: Subroutine \"subtest\" is neither declared nor explicitly imported (Subroutines::ProhibitCallsToUndeclaredSubs, Severity: 4)",
+	"source": "perlnavigator",
+	"startLineNumber": 29,
+	"startColumn": 1,
+	"endLineNumber": 29,
+	"endColumn": 501
+},{
+	"resource": "/opt/proofpoint/t/06_edge_cases.t",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"severity": 2,
+	"message": "Critic: Subroutine \"plan\" is neither declared nor explicitly imported (Subroutines::ProhibitCallsToUndeclaredSubs, Severity: 4)",
+	"source": "perlnavigator",
+	"startLineNumber": 30,
+	"startColumn": 5,
+	"endLineNumber": 30,
+	"endColumn": 505
+},{
+	"resource": "/opt/proofpoint/t/06_edge_cases.t",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"severity": 2,
+	"message": "Critic: Subroutine \"create_test_csv\" is neither declared nor explicitly imported (Subroutines::ProhibitCallsToUndeclaredSubs, Severity: 4)",
+	"source": "perlnavigator",
+	"startLineNumber": 33,
+	"startColumn": 21,
+	"endLineNumber": 33,
+	"endColumn": 521
+}]

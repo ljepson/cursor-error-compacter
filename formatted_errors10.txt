@@ -1,0 +1,4 @@
+INFO [06_edge_cases.t:186] : Critic: Subroutine "create_test_file" does not end with "return" (Subroutines::RequireFinalReturn, Severity: 4)
+INFO [UserAdmTestUtils.pm:47] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)
+INFO [UserAdmTestUtils.pm:71] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)
+INFO [UserAdmTestUtils.pm:91] : Critic: Close filehandles as soon as possible after opening them (InputOutput::RequireBriefOpen, Severity: 4)

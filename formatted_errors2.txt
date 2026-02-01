@@ -1,0 +1,4 @@
+ERROR [file.log:180] redundant-parameter: This function expects a maximum of 0 argument(s) but instead it is receiving 1.
+INFO [file.pl:22] lowercase-global: Global variable in lowercase initial, Did you miss `local` or misspell it?
+WARNING [file.py:629] cast-local-type: This variable is defined as type `boolean`. Cannot convert its type to `unknown|nil`. - `nil` cannot match `boolean` - Type `nil` cannot match `boolean`
+WARNING [file.lua:2074] duplicate-set-field: Duplicate field `handleMemoryWrite`.

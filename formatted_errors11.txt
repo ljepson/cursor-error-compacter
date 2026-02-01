@@ -1,0 +1,8 @@
+ERROR [useradm.pl:37] : Compilation failed in require at /opt/proofpoint/current/admin/tools/useradm.pl line 37.
+ERROR [useradm.pl:37] : BEGIN failed--compilation aborted at /opt/proofpoint/current/admin/tools/useradm.pl line 37.
+ERROR [useradm.pl:37] : Compilation failed in require at /opt/proofpoint/pps-8.0.1.1446/admin/tools/useradm.pl line 37.
+ERROR [useradm.pl:37] : BEGIN failed--compilation aborted at /opt/proofpoint/pps-8.0.1.1446/admin/tools/useradm.pl line 37.
+ERROR [Options.pm:484] : Global symbol "%valid_merge_separator" requires explicit package name (did you forget to declare "my %valid_merge_separator"?) at /opt/proofpoint/pps-8.0.1.1446/lib/Proofpoint/UserADM/Options.pm line 484.
+ERROR [Options.pm:485] : Global symbol "%valid_merge_separator" requires explicit package name (did you forget to declare "my %valid_merge_separator"?) at /opt/proofpoint/pps-8.0.1.1446/lib/Proofpoint/UserADM/Options.pm line 485.
+ERROR [Options.pm:489] : Global symbol "%valid_merge_separator" requires explicit package name (did you forget to declare "my %valid_merge_separator"?) at /opt/proofpoint/pps-8.0.1.1446/lib/Proofpoint/UserADM/Options.pm line 489.
+ERROR [Options.pm:494] : Global symbol "%valid_merge_separator" requires explicit package name (did you forget to declare "my %valid_merge_separator"?) at /opt/proofpoint/pps-8.0.1.1446/lib/Proofpoint/UserADM/Options.pm line 494.

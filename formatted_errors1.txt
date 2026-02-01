@@ -1,0 +1,4 @@
+INFO [06_edge_cases.t:27] : Critic: Subroutine \
+INFO [06_edge_cases.t:29] : Critic: Subroutine \
+INFO [06_edge_cases.t:30] : Critic: Subroutine \
+INFO [06_edge_cases.t:33] : Critic: Subroutine \
